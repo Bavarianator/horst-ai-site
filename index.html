@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HORST – Deutsche Korrektur, von Grund auf</title>
+<meta name="description" content="Horst ist eine eigene KI für deutsche Rechtschreibung und Grammatik. Von Grund auf trainiert, kein Fine-Tuning. Alle Benchmark-Ergebnisse, offen und je Kategorie.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0c0f'/%3E%3Cpath d='M9 7v18M23 7v18M9 16h14' stroke='%23c6f24e' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#top">HORST<span>.</span></a>
+  <nav>
+    <a href="#befund">Befund</a>
+    <a href="#benchmark">Benchmark</a>
+    <a href="#verlauf">Verlauf</a>
+    <a href="#modell">Modell</a>
+    <a href="#methodik">Methodik</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="eyebrow">Deutsche Rechtschreib- &amp; Grammatikkorrektur</p>
+    <h1>Horst<br>korrigiert<span class="cursor">_</span></h1>
+    <p class="lead">Eine eigene KI. <strong>Von Grund auf trainiert</strong>, kein Fine-Tuning, keine fremden Gewichte. Und weil Behauptungen billig sind: alle Messwerte, jede Kategorie, auch die schlechten.</p>
+    <div class="cta">
+      <a class="btn primary" href="#benchmark">Ergebnisse ansehen</a>
+      <a class="btn" href="https://huggingface.co/spaces/Bayernator/HORST" rel="noopener">Live ausprobieren ↗</a>
+      <a class="btn ghost" href="https://huggingface.co/Bayernator/horst-ai" rel="noopener">Modell auf Hugging Face ↗</a>
+    </div>
+    <dl class="stats">
+      <div><dt>Parameter</dt><dd>209 Mio.</dd></div>
+      <div><dt>Fremde Gewichte</dt><dd>0</dd></div>
+      <div><dt>Benchmark-Aufgaben</dt><dd id="stat-items">2.400</dd></div>
+      <div><dt>Hardware</dt><dd>2× T4</dd></div>
+    </dl>
+  </section>
+
+  <section id="befund" class="block">
+    <h2><span class="num">01</span>Der ehrliche Befund</h2>
+    <div class="bento">
+      <article class="card good">
+        <h3>Künstliche Fehler: gelöst</h3>
+        <p>Groß/Klein, Homophone, Grammatik, Tippfehler und Lautschrift liegen bei Horst Stufe 1 zwischen <b>0,85 und 0,94</b> F0,5.</p>
+      </article>
+      <article class="card bad">
+        <h3>Echte Fehler: schwach</h3>
+        <p>Bei echten Lernerfehlern erreicht Horst <b>0,37</b>, bei Wikipedia-Korrekturen <b>0,16</b>. Das ist die offene Baustelle, nicht ihr Versteck.</p>
+      </article>
+      <article class="card">
+        <h3>Wenig Überkorrektur</h3>
+        <p>Bei fehlerfreien Fallen-Sätzen lässt Horst <b>95 %</b> unangetastet. Ein Korrekturprogramm, das ständig „verbessert“, ist keins.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="benchmark" class="block">
+    <h2><span class="num">02</span>HORST-Hard</h2>
+    <p class="sub" id="bench-sub"></p>
+    <div class="controls" role="group" aria-label="Kennzahl">
+      <button data-metric="F05" aria-pressed="true">F0,5</button>
+      <button data-metric="P" aria-pressed="false">Precision</button>
+      <button data-metric="R" aria-pressed="false">Recall</button>
+      <button data-metric="exakt" aria-pressed="false">Exakt richtig</button>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div id="chart" class="chart" aria-live="polite"></div>
+    <details class="table-wrap">
+      <summary>Alle Zahlen als Tabelle</summary>
+      <div class="scroll"><table id="table"></table></div>
+    </details>
+  </section>
+
+  <section id="verlauf" class="block">
+    <h2><span class="num">03</span>Verlauf</h2>
+    <div class="bento two">
+      <article class="card">
+        <h3>Echte Lernerfehler (Falko-dev)</h3>
+        <p class="sub">F0,5, 200 Sätze, greedy. Die Messung rauscht um ±0,03.</p>
+        <div class="spark" id="spark"></div>
+      </article>
+      <article class="card">
+        <h3>Was dahintersteckt</h3>
+        <p>Stufe 2 trainiert auf Texten bis 500 Wörter und stärker auf echten Fehlern. Danach flachte die Kurve ab: Die 19.000 echten Lernerpaare werden rund 100-mal gesehen, die Wikipedia-Quellen nur 1- bis 3-mal. Phase 3 setzt deshalb bei den <b>Daten</b> an, nicht bei mehr Schritten.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="modell" class="block">
+    <h2><span class="num">04</span>Das Modell</h2>
+    <div class="bento">
+      <article class="card"><h3>Architektur</h3><p>Encoder-Decoder-Transformer, 6+6 Schichten, d=1024, 16 Köpfe, FFN 4096, geteilte Embeddings. <code>209 Mio.</code> Parameter.</p></article>
+      <article class="card"><h3>Tokenizer</h3><p>SentencePiece Unigram, 32k Vokabular, Byte-Fallback. Eigens auf deutschem Text trainiert.</p></article>
+      <article class="card"><h3>Training</h3><p>Komplett auf Kaggle, 2× T4, fp16. Echte Fehlerpaare, Wikipedia-Revisionen und unbegrenzt viele künstliche Fehler on the fly.</p></article>
+      <article class="card wide"><h3>Kein Fine-Tuning</h3><p>Jedes Gewicht stammt aus eigenem Training. Kein T5, kein BERT, kein LLM im Hintergrund.</p></article>
+    </div>
+  </section>
+
+  <section id="methodik" class="block">
+    <h2><span class="num">05</span>Methodik &amp; Grenzen</h2>
+    <ul class="list">
+      <li><b>Metrik.</b> Edit-Vergleich auf Wortebene, F0,5 (Precision zählt doppelt). Derselbe Scorer für jedes System. Geprüft mit Identität (Recall 0) und Orakel (F0,5 = 1,00).</li>
+      <li><b>Unabhängig.</b> HORST-Hard speist sich nur aus dem Ende der deutschen Wikipedia, dem Falko-MERLIN-Test und dem WikiEdits-Test. Exakte Überschneidungen mit dem Trainingskorpus wurden entfernt (<span id="overlap">0,8 %</span>).</li>
+      <li><b>Webtexte raus.</b> Sie hatten fehlerhafte Originale und teils explizite Inhalte, also taugen sie nicht als Referenz.</li>
+      <li><b>Grenzen.</b> Je 200 Aufgaben pro Kategorie: kleine Unterschiede sind Rauschen. Wikipedia-Edits sind großenteils Inhalt und Stil statt Fehler, das deckelt <code>wiki_echt</code>. LanguageTool wird mit der jeweils ersten Ersetzung ohne Stilregeln angewendet.</li>
+      <li><b>Lange Texte.</b> Auf CPU zu langsam, die Messung folgt mit KV-Cache auf GPU.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Horst-AI · Forschungsprojekt</span>
+  <span><a href="https://huggingface.co/Bayernator/horst-ai" rel="noopener">Modell</a> · <a href="https://huggingface.co/spaces/Bayernator/HORST" rel="noopener">Space</a></span>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

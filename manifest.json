@@ -1,0 +1,98 @@
+{
+ "name": "HORST-Hard",
+ "seed": 20261003,
+ "gesamt": 2400,
+ "kategorien": {
+  "gross_klein": {
+   "n": 200,
+   "mittel_fehler": 2.21,
+   "mittel_woerter": 21.8
+  },
+  "komma_schwer": {
+   "n": 200,
+   "mittel_fehler": 2.06,
+   "mittel_woerter": 25.9
+  },
+  "getrennt_zusammen": {
+   "n": 200,
+   "mittel_fehler": 4.9,
+   "mittel_woerter": 18.9
+  },
+  "homophon": {
+   "n": 200,
+   "mittel_fehler": 2.13,
+   "mittel_woerter": 23.2
+  },
+  "grammatik": {
+   "n": 200,
+   "mittel_fehler": 2.04,
+   "mittel_woerter": 26.3
+  },
+  "tippfehler_dicht": {
+   "n": 200,
+   "mittel_fehler": 4.85,
+   "mittel_woerter": 15.9
+  },
+  "lautschrift": {
+   "n": 200,
+   "mittel_fehler": 2.04,
+   "mittel_woerter": 20.2
+  },
+  "mix_extrem": {
+   "n": 200,
+   "mittel_fehler": 6.62,
+   "mittel_woerter": 22.9
+  },
+  "lange_texte": {
+   "n": 200,
+   "mittel_fehler": 12.91,
+   "mittel_woerter": 257.8
+  },
+  "kontrolle": {
+   "n": 200,
+   "mittel_fehler": 0.0,
+   "mittel_woerter": 20.3
+  },
+  "lerner_echt": {
+   "n": 200,
+   "mittel_fehler": 5.42,
+   "mittel_woerter": 18.9
+  },
+  "wiki_echt": {
+   "n": 200,
+   "mittel_fehler": 1.57,
+   "mittel_woerter": 20.6
+  }
+ },
+ "beschreibung": {
+  "gross_klein": "Groß-/Kleinschreibung: Anrede Sie/Ihr, Tageszeiten, Nominalisierungen, falsch große Adjektive",
+  "komma_schwer": "Kommasetzung: Pflichtkommas vor Neben-/Relativsätzen, Infinitivgruppen, Aufzählungen, falsche Kommas",
+  "getrennt_zusammen": "Getrennt-/Zusammenschreibung: nichtmehr, da mit, mit einander, getrennte Komposita",
+  "homophon": "Verwechslungen im Kontext: das/dass, seid/seit, wieder/wider, ihm/ihn, den/denn, größer wie",
+  "grammatik": "Grammatik: Verbendung zur Person, falscher Kasus nach Präposition, ist/hat gegangen, mir/mich",
+  "tippfehler_dicht": "Dichte Tippfehler: 3 bis 6 pro Satz (Buchstabendreher, Nachbartasten, zusammengerutschte Wörter)",
+  "lautschrift": "Lautgetreue Falschschreibung: Dehnungs-h, Doppelkonsonanten, ie/i, d/t, alte ß-Schreibung",
+  "mix_extrem": "Extrem: mindestens vier verschiedene Fehlerarten im selben Satz",
+  "lange_texte": "Lange Texte: 200 bis 500 Wörter am Stück mit gemischten Fehlern über viele Sätze",
+  "kontrolle": "Fehlerfreie Fallen-Sätze (Eigennamen, Zahlen, Zitate, Sie, Abkürzungen): müssen unverändert bleiben",
+  "lerner_echt": "Echte Lernerfehler (Falko-MERLIN, Test): mindestens zwei Korrekturen",
+  "wiki_echt": "Echte Korrekturen von Wikipedia-Autoren (WikiEdits-MultiGEC, Test/Val)"
+ },
+ "ueberschneidung_trainingskorpus": {
+  "pool_vorher": 250000,
+  "pool_entfernt": 1397,
+  "laeufe_vorher": 2400,
+  "echt_vorher": 1494,
+  "echt_entfernt": 13,
+  "treffer_pro_datei": {
+   "clean.txt": 1535,
+   "own.trg": 98,
+   "hf.wiki.trg": 0,
+   "wiki.mined.trg": 46,
+   "wiki.1M.trg": 86,
+   "fm-train.trg": 16
+  },
+  "laeufe_entfernt": 83
+ },
+ "warnungen": []
+}

@@ -1,0 +1,247 @@
+{
+ "benchmark": {
+  "name": "HORST-Hard",
+  "gesamt": 2400,
+  "seed": 20261003,
+  "kategorien": [
+   {
+    "id": "gross_klein",
+    "label": "Groß & klein",
+    "n": 200,
+    "beschreibung": "Groß-/Kleinschreibung: Anrede Sie/Ihr, Tageszeiten, Nominalisierungen, falsch große Adjektive",
+    "fehler": 2.21,
+    "woerter": 21.8
+   },
+   {
+    "id": "komma_schwer",
+    "label": "Komma, schwer",
+    "n": 200,
+    "beschreibung": "Kommasetzung: Pflichtkommas vor Neben-/Relativsätzen, Infinitivgruppen, Aufzählungen, falsche Kommas",
+    "fehler": 2.06,
+    "woerter": 25.9
+   },
+   {
+    "id": "getrennt_zusammen",
+    "label": "Getrennt / zusammen",
+    "n": 200,
+    "beschreibung": "Getrennt-/Zusammenschreibung: nichtmehr, da mit, mit einander, getrennte Komposita",
+    "fehler": 4.9,
+    "woerter": 18.9
+   },
+   {
+    "id": "homophon",
+    "label": "Homophone",
+    "n": 200,
+    "beschreibung": "Verwechslungen im Kontext: das/dass, seid/seit, wieder/wider, ihm/ihn, den/denn, größer wie",
+    "fehler": 2.13,
+    "woerter": 23.2
+   },
+   {
+    "id": "grammatik",
+    "label": "Grammatik",
+    "n": 200,
+    "beschreibung": "Grammatik: Verbendung zur Person, falscher Kasus nach Präposition, ist/hat gegangen, mir/mich",
+    "fehler": 2.04,
+    "woerter": 26.3
+   },
+   {
+    "id": "tippfehler_dicht",
+    "label": "Tippfehler, dicht",
+    "n": 200,
+    "beschreibung": "Dichte Tippfehler: 3 bis 6 pro Satz (Buchstabendreher, Nachbartasten, zusammengerutschte Wörter)",
+    "fehler": 4.85,
+    "woerter": 15.9
+   },
+   {
+    "id": "lautschrift",
+    "label": "Lautschrift",
+    "n": 200,
+    "beschreibung": "Lautgetreue Falschschreibung: Dehnungs-h, Doppelkonsonanten, ie/i, d/t, alte ß-Schreibung",
+    "fehler": 2.04,
+    "woerter": 20.2
+   },
+   {
+    "id": "mix_extrem",
+    "label": "Mix, extrem",
+    "n": 200,
+    "beschreibung": "Extrem: mindestens vier verschiedene Fehlerarten im selben Satz",
+    "fehler": 6.62,
+    "woerter": 22.9
+   },
+   {
+    "id": "lange_texte",
+    "label": "Lange Texte",
+    "n": 200,
+    "beschreibung": "Lange Texte: 200 bis 500 Wörter am Stück mit gemischten Fehlern über viele Sätze",
+    "fehler": 12.91,
+    "woerter": 257.8
+   },
+   {
+    "id": "kontrolle",
+    "label": "Kontrolle",
+    "n": 200,
+    "beschreibung": "Fehlerfreie Fallen-Sätze (Eigennamen, Zahlen, Zitate, Sie, Abkürzungen): müssen unverändert bleiben",
+    "fehler": 0.0,
+    "woerter": 20.3
+   },
+   {
+    "id": "lerner_echt",
+    "label": "Lernerfehler, echt",
+    "n": 200,
+    "beschreibung": "Echte Lernerfehler (Falko-MERLIN, Test): mindestens zwei Korrekturen",
+    "fehler": 5.42,
+    "woerter": 18.9
+   },
+   {
+    "id": "wiki_echt",
+    "label": "Wikipedia-Edits, echt",
+    "n": 200,
+    "beschreibung": "Echte Korrekturen von Wikipedia-Autoren (WikiEdits-MultiGEC, Test/Val)",
+    "fehler": 1.57,
+    "woerter": 20.6
+   }
+  ],
+  "ueberschneidung": {
+   "pool_vorher": 250000,
+   "pool_entfernt": 1397,
+   "laeufe_vorher": 2400,
+   "echt_vorher": 1494,
+   "echt_entfernt": 13,
+   "treffer_pro_datei": {
+    "clean.txt": 1535,
+    "own.trg": 98,
+    "hf.wiki.trg": 0,
+    "wiki.mined.trg": 46,
+    "wiki.1M.trg": 86,
+    "fm-train.trg": 16
+   },
+   "laeufe_entfernt": 83
+  }
+ },
+ "systems": [
+  {
+   "id": "horst-stufe1",
+   "name": "Horst · Stufe 1",
+   "color": "s1",
+   "status": "fertig",
+   "kategorien": {
+    "gross_klein": {
+     "P": 0.9778,
+     "R": 0.7968,
+     "F05": 0.9353,
+     "exakt": 0.6,
+     "unveraendert": 0.065,
+     "fp_je_100_woerter": 0.1633,
+     "wortverhaeltnis": 1.0002
+    },
+    "komma_schwer": {
+     "P": 0.869,
+     "R": 0.5328,
+     "F05": 0.7717,
+     "exakt": 0.235,
+     "unveraendert": 0.17,
+     "fp_je_100_woerter": 0.5718,
+     "wortverhaeltnis": 1.0385
+    },
+    "getrennt_zusammen": {
+     "P": 0.9273,
+     "R": 0.8204,
+     "F05": 0.9038,
+     "exakt": 0.57,
+     "unveraendert": 0.005,
+     "fp_je_100_woerter": 1.3213,
+     "wortverhaeltnis": 0.9184
+    },
+    "homophon": {
+     "P": 0.9516,
+     "R": 0.829,
+     "F05": 0.9243,
+     "exakt": 0.655,
+     "unveraendert": 0.02,
+     "fp_je_100_woerter": 0.3483,
+     "wortverhaeltnis": 1.0002
+    },
+    "grammatik": {
+     "P": 0.9527,
+     "R": 0.7912,
+     "F05": 0.9153,
+     "exakt": 0.66,
+     "unveraendert": 0.09,
+     "fp_je_100_woerter": 0.2733,
+     "wortverhaeltnis": 1.0
+    },
+    "tippfehler_dicht": {
+     "P": 0.9238,
+     "R": 0.8371,
+     "F05": 0.905,
+     "exakt": 0.42,
+     "unveraendert": 0.005,
+     "fp_je_100_woerter": 1.8534,
+     "wortverhaeltnis": 1.0138
+    },
+    "lautschrift": {
+     "P": 0.8926,
+     "R": 0.7132,
+     "F05": 0.8499,
+     "exakt": 0.515,
+     "unveraendert": 0.08,
+     "fp_je_100_woerter": 0.7655,
+     "wortverhaeltnis": 1.0009
+    },
+    "mix_extrem": {
+     "P": 0.9035,
+     "R": 0.7842,
+     "F05": 0.8768,
+     "exakt": 0.315,
+     "unveraendert": 0.0,
+     "fp_je_100_woerter": 2.0617,
+     "wortverhaeltnis": 0.9785
+    },
+    "kontrolle": {
+     "P": 0.0,
+     "R": 1.0,
+     "F05": 0.0,
+     "exakt": 0.95,
+     "unveraendert": 0.95,
+     "fp_je_100_woerter": 0.2538,
+     "wortverhaeltnis": 0.9979
+    },
+    "lerner_echt": {
+     "P": 0.6214,
+     "R": 0.1394,
+     "F05": 0.3674,
+     "exakt": 0.015,
+     "unveraendert": 0.42,
+     "fp_je_100_woerter": 2.1475,
+     "wortverhaeltnis": 1.01
+    },
+    "wiki_echt": {
+     "P": 0.5909,
+     "R": 0.0413,
+     "F05": 0.1613,
+     "exakt": 0.065,
+     "unveraendert": 0.895,
+     "fp_je_100_woerter": 0.1883,
+     "wortverhaeltnis": 1.0008
+    }
+   },
+   "makro": 0.7611
+  },
+  {
+   "id": "horst-stufe2",
+   "name": "Horst · Stufe 2",
+   "color": "s2",
+   "status": "läuft",
+   "kategorien": {},
+   "makro": null
+  },
+  {
+   "id": "languagetool",
+   "name": "LanguageTool 6.6",
+   "color": "lt",
+   "status": "läuft",
+   "kategorien": {},
+   "makro": null
+  }
+ ]
+}
