@@ -44,15 +44,15 @@
     <div class="bento">
       <article class="card good">
         <h3>Künstliche Fehler: stark</h3>
-        <p>Sieben von acht synthetischen Kategorien liegen bei Horst Stufe 1 zwischen <b>0,85 und 0,94</b> F0,5. Nur Komma, schwer fällt mit <b>0,77</b> ab (Recall 0,53).</p>
+        <p>Horst Stufe 2 liegt in allen acht synthetischen Kategorien zwischen <b>0,87 und 0,95</b> F0,5, Komma, schwer sprang von 0,77 auf <b>0,95</b>. LanguageTool kommt auf 0,05 bis 0,64.</p>
       </article>
       <article class="card bad">
-        <h3>Echte Fehler: schwach</h3>
-        <p>Bei echten Lernerfehlern erreicht Horst <b>0,37</b>, bei Wikipedia-Korrekturen <b>0,16</b>. Das ist die offene Baustelle, nicht ihr Versteck.</p>
+        <h3>Echte Fehler: besser, aber offen</h3>
+        <p>Lernerfehler: von 0,37 auf <b>0,64</b> (LanguageTool 0,43). Wikipedia-Korrekturen: nur <b>0,26</b> (Recall 0,08), viele Edits dort sind Inhalt und Stil. Die Lernerdaten stammen aus derselben Familie wie das Training, das macht den Wert optimistisch.</p>
       </article>
       <article class="card">
-        <h3>Wenig Überkorrektur</h3>
-        <p>Bei fehlerfreien Fallen-Sätzen lässt Horst <b>95 %</b> unangetastet. Ein Korrekturprogramm, das ständig „verbessert“, ist keins.</p>
+        <h3>Überkorrektur: ein Rückschritt</h3>
+        <p>Fehlerfreie Fallen-Sätze lässt Stufe 1 zu <b>95 %</b> unverändert, Stufe 2 nur zu <b>88 %</b>. LanguageTool: 45 %. Auch Grammatik fiel leicht (0,92 → 0,89). Mehr Mut kostet Vorsicht.</p>
       </article>
     </div>
   </section>
@@ -81,7 +81,7 @@
     <div class="bento two">
       <article class="card">
         <h3>Echte Lernerfehler (Falko-dev)</h3>
-        <p class="sub">F0,5 auf 200 Falko-dev-Sätzen, greedy, Rauschen ca. ±0,03. Stufe 2 ist der beste Checkpoint, ausgewählt auf genau diesem Dev: optimistisch und nicht mit den Testwerten oben vergleichbar. Der Testwert folgt.</p>
+        <p class="sub">F0,5 auf 200 Falko-dev-Sätzen, greedy, Rauschen ca. ±0,03. Stufe 2 ist der beste Checkpoint, ausgewählt auf genau diesem Dev: optimistisch. Auf dem Test (HORST-Hard, Lernerfehler) liegt Stufe 2 mit 0,64 im selben Bereich.</p>
         <div class="spark" id="spark"></div>
       </article>
       <article class="card">
@@ -96,7 +96,7 @@
     <div class="bento">
       <article class="card"><h3>Architektur</h3><p>Encoder-Decoder-Transformer, 6+6 Schichten, d=1024, 16 Köpfe, FFN 4096, geteilte Embeddings. <code>209 Mio.</code> Parameter.</p></article>
       <article class="card"><h3>Tokenizer</h3><p>SentencePiece Unigram, 32k Vokabular, Byte-Fallback. Eigens auf deutschem Text trainiert.</p></article>
-      <article class="card"><h3>Training</h3><p>Komplett auf Kaggle, 2× T4, fp16. Echte Fehlerpaare und künstliche Fehler on the fly, ab Stufe 2 zusätzlich Wikipedia-Revisionen und lange Texte. Die Tabelle oben misst den veröffentlichten Stand (Stufe 1); Stufe 2 folgt.</p></article>
+      <article class="card"><h3>Training</h3><p>Komplett auf Kaggle, 2× T4, fp16. Echte Fehlerpaare und künstliche Fehler on the fly, ab Stufe 2 zusätzlich Wikipedia-Revisionen und lange Texte. Gemessen sind Stufe 1 (die veröffentlichten Gewichte) und Stufe 2 (bester Checkpoint der ersten Session).</p></article>
       <article class="card wide"><h3>Kein Fine-Tuning</h3><p>Jedes Gewicht stammt aus eigenem Training. Kein T5, kein BERT, kein LLM im Hintergrund.</p></article>
     </div>
   </section>
@@ -107,8 +107,8 @@
       <li><b>Metrik.</b> Edit-Vergleich auf Wortebene, F0,5 (Precision zählt doppelt). Derselbe Scorer für jedes System. Es ist eine eigene Näherung an MaxMatch, nicht ERRANT: Mit Literaturwerten sind die Zahlen nur eingeschränkt vergleichbar. Geprüft mit Identität (Recall 0) und Orakel (F0,5 = 1,00).</li>
       <li><b>Getrennte Quellen.</b> HORST-Hard speist sich nur aus dem Ende der deutschen Wikipedia, dem Falko-MERLIN-Test und dem WikiEdits-Test, mit eigenen Fehlergeneratoren. Wegen exakter Übereinstimmung mit dem Trainingskorpus wurden <span id="overlap"></span> Nahe Duplikate hat die Prüfung nicht erfasst.</li>
       <li><b>Webtexte raus.</b> Sie hatten fehlerhafte Originale und teils explizite Inhalte, also taugen sie nicht als Referenz.</li>
-      <li><b>Grenzen.</b> Je 200 Aufgaben pro Kategorie: kleine Unterschiede sind Rauschen. Wikipedia-Edits sind großenteils Inhalt und Stil statt Fehler, das deckelt <code>wiki_echt</code>. LanguageTool wird mit der jeweils ersten Ersetzung ohne Stilregeln angewendet.</li>
-      <li><b>Lange Texte.</b> Auf CPU zu langsam, die Messung folgt mit KV-Cache auf GPU.</li>
+      <li><b>Grenzen.</b> Je 200 Aufgaben pro Kategorie: kleine Unterschiede sind Rauschen. Wikipedia-Edits sind großenteils Inhalt und Stil statt Fehler, das deckelt <code>wiki_echt</code>. LanguageTool wird mit der jeweils ersten Ersetzung ohne Stilregeln angewendet. Die Aufgaben stammen von uns, nicht von einem unabhängigen Dritten: Sie zeigen, wie gut jedes System unsere schweren Fälle löst, kein allgemeines Urteil über LanguageTool.</li>
+      <li><b>Lange Texte.</b> Nur LanguageTool ist gemessen (0,32). Horst war auf CPU zu langsam, die Messung folgt mit KV-Cache auf GPU.</li>
     </ul>
   </section>
 </main>

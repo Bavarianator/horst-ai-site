@@ -231,17 +231,226 @@
    "id": "horst-stufe2",
    "name": "Horst · Stufe 2",
    "color": "s2",
-   "status": "läuft",
-   "kategorien": {},
-   "makro": null
+   "status": "fertig",
+   "kategorien": {
+    "gross_klein": {
+     "P": 0.9629,
+     "R": 0.8781,
+     "F05": 0.9446,
+     "exakt": 0.72,
+     "unveraendert": 0.015,
+     "fp_je_100_woerter": 0.3061,
+     "wortverhaeltnis": 0.9996
+    },
+    "komma_schwer": {
+     "P": 0.9563,
+     "R": 0.9051,
+     "F05": 0.9456,
+     "exakt": 0.785,
+     "unveraendert": 0.03,
+     "fp_je_100_woerter": 0.2946,
+     "wortverhaeltnis": 1.0298
+    },
+    "getrennt_zusammen": {
+     "P": 0.9319,
+     "R": 0.8235,
+     "F05": 0.908,
+     "exakt": 0.575,
+     "unveraendert": 0.0,
+     "fp_je_100_woerter": 1.2374,
+     "wortverhaeltnis": 0.918
+    },
+    "homophon": {
+     "P": 0.9611,
+     "R": 0.9251,
+     "F05": 0.9536,
+     "exakt": 0.83,
+     "unveraendert": 0.005,
+     "fp_je_100_woerter": 0.3096,
+     "wortverhaeltnis": 1.0
+    },
+    "grammatik": {
+     "P": 0.9091,
+     "R": 0.8354,
+     "F05": 0.8933,
+     "exakt": 0.66,
+     "unveraendert": 0.04,
+     "fp_je_100_woerter": 0.5807,
+     "wortverhaeltnis": 0.9986
+    },
+    "tippfehler_dicht": {
+     "P": 0.9215,
+     "R": 0.8474,
+     "F05": 0.9057,
+     "exakt": 0.465,
+     "unveraendert": 0.005,
+     "fp_je_100_woerter": 1.9364,
+     "wortverhaeltnis": 1.0149
+    },
+    "lautschrift": {
+     "P": 0.9564,
+     "R": 0.8603,
+     "F05": 0.9355,
+     "exakt": 0.75,
+     "unveraendert": 0.025,
+     "fp_je_100_woerter": 0.35,
+     "wortverhaeltnis": 0.9998
+    },
+    "mix_extrem": {
+     "P": 0.9009,
+     "R": 0.7819,
+     "F05": 0.8743,
+     "exakt": 0.335,
+     "unveraendert": 0.0,
+     "fp_je_100_woerter": 2.1174,
+     "wortverhaeltnis": 0.9744
+    },
+    "kontrolle": {
+     "P": 0.0,
+     "R": 1.0,
+     "F05": 0.0,
+     "exakt": 0.88,
+     "unveraendert": 0.88,
+     "fp_je_100_woerter": 0.5711,
+     "wortverhaeltnis": 0.9996
+    },
+    "lerner_echt": {
+     "P": 0.7415,
+     "R": 0.4211,
+     "F05": 0.6435,
+     "exakt": 0.14,
+     "unveraendert": 0.08,
+     "fp_je_100_woerter": 3.7115,
+     "wortverhaeltnis": 1.0131
+    },
+    "wiki_echt": {
+     "P": 0.5778,
+     "R": 0.0825,
+     "F05": 0.2626,
+     "exakt": 0.095,
+     "unveraendert": 0.81,
+     "fp_je_100_woerter": 0.3976,
+     "wortverhaeltnis": 0.9998
+    }
+   },
+   "makro": 0.8267
   },
   {
    "id": "languagetool",
    "name": "LanguageTool 6.6",
    "color": "lt",
-   "status": "läuft",
-   "kategorien": {},
-   "makro": null
+   "status": "fertig",
+   "kategorien": {
+    "gross_klein": {
+     "P": 0.6097,
+     "R": 0.7652,
+     "F05": 0.6355,
+     "exakt": 0.3,
+     "unveraendert": 0.015,
+     "fp_je_100_woerter": 4.4286,
+     "wortverhaeltnis": 1.0029
+    },
+    "komma_schwer": {
+     "P": 0.2586,
+     "R": 0.1825,
+     "F05": 0.2387,
+     "exakt": 0.03,
+     "unveraendert": 0.295,
+     "fp_je_100_woerter": 3.7255,
+     "wortverhaeltnis": 1.0158
+    },
+    "getrennt_zusammen": {
+     "P": 0.0615,
+     "R": 0.0347,
+     "F05": 0.0533,
+     "exakt": 0.0,
+     "unveraendert": 0.01,
+     "fp_je_100_woerter": 10.8851,
+     "wortverhaeltnis": 1.0086
+    },
+    "homophon": {
+     "P": 0.3747,
+     "R": 0.3255,
+     "F05": 0.3637,
+     "exakt": 0.07,
+     "unveraendert": 0.1,
+     "fp_je_100_woerter": 4.4892,
+     "wortverhaeltnis": 1.0126
+    },
+    "grammatik": {
+     "P": 0.4011,
+     "R": 0.3489,
+     "F05": 0.3895,
+     "exakt": 0.065,
+     "unveraendert": 0.185,
+     "fp_je_100_woerter": 3.6208,
+     "wortverhaeltnis": 1.0017
+    },
+    "tippfehler_dicht": {
+     "P": 0.6245,
+     "R": 0.6206,
+     "F05": 0.6237,
+     "exakt": 0.09,
+     "unveraendert": 0.0,
+     "fp_je_100_woerter": 10.0138,
+     "wortverhaeltnis": 1.0172
+    },
+    "lautschrift": {
+     "P": 0.5193,
+     "R": 0.6912,
+     "F05": 0.5465,
+     "exakt": 0.24,
+     "unveraendert": 0.0,
+     "fp_je_100_woerter": 5.7087,
+     "wortverhaeltnis": 1.0037
+    },
+    "mix_extrem": {
+     "P": 0.4167,
+     "R": 0.3019,
+     "F05": 0.3872,
+     "exakt": 0.0,
+     "unveraendert": 0.0,
+     "fp_je_100_woerter": 10.4012,
+     "wortverhaeltnis": 1.0113
+    },
+    "lange_texte": {
+     "P": 0.3045,
+     "R": 0.4314,
+     "F05": 0.3236,
+     "exakt": 0.0,
+     "unveraendert": 0.0,
+     "fp_je_100_woerter": 4.3555,
+     "wortverhaeltnis": 1.0039
+    },
+    "kontrolle": {
+     "P": 0.0,
+     "R": 1.0,
+     "F05": 0.0,
+     "exakt": 0.445,
+     "unveraendert": 0.445,
+     "fp_je_100_woerter": 4.5262,
+     "wortverhaeltnis": 1.0042
+    },
+    "lerner_echt": {
+     "P": 0.6347,
+     "R": 0.1893,
+     "F05": 0.4316,
+     "exakt": 0.025,
+     "unveraendert": 0.22,
+     "fp_je_100_woerter": 2.7544,
+     "wortverhaeltnis": 1.003
+    },
+    "wiki_echt": {
+     "P": 0.1973,
+     "R": 0.0921,
+     "F05": 0.1606,
+     "exakt": 0.08,
+     "unveraendert": 0.52,
+     "fp_je_100_woerter": 2.4691,
+     "wortverhaeltnis": 1.0008
+    }
+   },
+   "makro": 0.383
   }
  ]
 }

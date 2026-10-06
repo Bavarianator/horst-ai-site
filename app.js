@@ -80,8 +80,7 @@ if (typeof document !== "undefined") {
   assert.strictEqual((chartHTML(data, "R").match(/class="row/g) || []).length, 12, "Makro nur bei F0,5");
   assert.ok(html.includes("nicht gemessen"), "lange Texte: nicht gemessen");
   assert.ok(html.includes("Anteil unverändert"), "Kontrolle beschriftet");
-  assert.ok(html.includes("läuft"), "ausstehende Systeme sichtbar");
-  assert.strictEqual(value(data.systems[0], "kontrolle", "F05"), 0.95, "Kontrolle = unverändert");
+    assert.strictEqual(value(data.systems[0], "kontrolle", "F05"), 0.95, "Kontrolle = unverändert");
   assert.strictEqual(value(data.systems[0], "lange_texte", "F05"), null, "lange Texte nicht gemessen");
   assert.ok(!/NaN|undefined/.test(html + tableHTML(data)), "keine NaN/undefined");
   for (const m of Object.keys(METRICS)) assert.ok(chartHTML(data, m).length > 500, m);

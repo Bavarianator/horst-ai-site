@@ -14,7 +14,7 @@ Statische Seite (kein Build, keine externen Anfragen, keine Tracker) mit allen B
 `python3 -m http.server` und http://localhost:8000 öffnen.
 
 ## Stand
-Gemessen: Horst Stufe 1 (ohne lange Texte). Offen: Horst Stufe 2, LanguageTool, lange Texte.
+Gemessen: Horst Stufe 1, Horst Stufe 2 (beide ohne lange Texte) und LanguageTool 6.6. Offen: lange Texte für Horst, Phase-3-Modell.
 
 ## Veröffentlichung
 GitHub Pages, Branch `main`, Ordner `/` (`.nojekyll` liegt bei). Lizenz: noch nicht entschieden (Trainingsquellen teils CC-BY-SA).
